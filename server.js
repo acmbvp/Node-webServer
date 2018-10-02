@@ -3,6 +3,7 @@ const express = require('express');
 var app = express();
 
 
+app.use(express.static(__dirname + '/public'));
 app.get('/',(request , response)=>{
 
 response.send('<h1>hey babes</h1>');
@@ -22,13 +23,13 @@ app.get('/json',(request , response)=>{
 
 })
 
-app.get('/webpage',()=>{
-	response.send('./Facebook_clone/public/fb.html');
-})
+// app.get('/webpage',()=>{
+// 	response.send('./Facebook_clone/public/fb.html');
+// })
 
-app.get('/image',(request,response)=>{
-	response.send('./space5.jpg')
-})
+// app.get('/image',(request,response)=>{
+// 	response.send('./space5.jpg')
+// })
 
 
 app.get('/bad',(request,response)=>{
@@ -40,4 +41,7 @@ app.get('/bad',(request,response)=>{
 })
 
 
-app.listen(3000);
+app.listen(3000, ()=>
+	{
+		console.log("Running on port 3000");
+	});
