@@ -10,7 +10,7 @@ app.set('view engine','hbs');
 // })
 
 
-
+hbs.registerPartials(__dirname + '/views/partials');
 app.get('/',(req,res)=>{
 	res.render('home.hbs',{
 		Heading : 'Home Page',
