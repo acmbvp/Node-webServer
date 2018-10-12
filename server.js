@@ -11,10 +11,17 @@ app.set('view engine','hbs');
 
 
 hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerHelper('getCurrentYear',()=>{
+	return new Date().getFullYear()
+
+})
+
+hbs.registerHelper('upperCase',(text)=>{
+   return text.toUpperCase();
+})
 app.get('/',(req,res)=>{
 	res.render('home.hbs',{
 		Heading : 'Home Page',
-		CurrentYear: new Date().getFullYear(),
 		PageDescription : 'Welcome to my page'
 
 	});
@@ -24,7 +31,6 @@ app.get('/about',(req,res)=>{
 
 	res.render('about.hbs',{
 		Heading : 'About page',
-		CurrentYear: new Date().getFullYear(),
 		PageDescription: 'Details about the page'
 	});
 
