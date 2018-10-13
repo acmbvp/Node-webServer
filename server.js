@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine','hbs');
 
@@ -22,7 +23,9 @@ app.use((req,res,next)=>{
 // app.use((req,res,next)=>{
 // 	res.render('maintenance.hbs');
 // })
+
 //app.use(express.static(__dirname + '/public'));
+
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear',()=>{
 	return new Date().getFullYear();
@@ -64,14 +67,6 @@ app.get('/about',(req,res)=>{
 
 // })
 
-// app.get('/webpage',()=>{
-// 	response.send('./Facebook_clone/public/fb.html');
-// })
-
-// app.get('/image',(request,response)=>{
-// 	response.send('./space5.jpg')
-// })
-
 
 // app.get('/bad',(request,response)=>{
 // 	response.send(
@@ -82,7 +77,7 @@ app.get('/about',(req,res)=>{
 // })
 
 
-app.listen(3000, ()=>
+app.listen(port, ()=>
 	{
-		console.log("Running on port 3000");
+		console.log(`Running on port ${port}`);
 	});
