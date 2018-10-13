@@ -19,10 +19,10 @@ app.use((req,res,next)=>{
 	next();
 
 })
-app.use((req,res,next)=>{
-	res.render('maintenance.hbs');
-})
-app.use(express.static(__dirname + '/public'));
+// app.use((req,res,next)=>{
+// 	res.render('maintenance.hbs');
+// })
+//app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear',()=>{
 	return new Date().getFullYear();
@@ -50,19 +50,19 @@ app.get('/about',(req,res)=>{
 
 })
 
-app.get('/json',(request , response)=>{
-	response.send({
-		name : 'vaari',
-		age : 21,
-		college : 'bvcoe',
-		branch : 'IT',
-		hobbies : [
-		'dancing',
-		'reading',
-		'listening music']
-	})
+// app.get('/json',(request , response)=>{
+// 	response.send({
+// 		name : 'vaari',
+// 		age : 21,
+// 		college : 'bvcoe',
+// 		branch : 'IT',
+// 		hobbies : [
+// 		'dancing',
+// 		'reading',
+// 		'listening music']
+// 	})
 
-})
+// })
 
 // app.get('/webpage',()=>{
 // 	response.send('./Facebook_clone/public/fb.html');
@@ -73,13 +73,13 @@ app.get('/json',(request , response)=>{
 // })
 
 
-app.get('/bad',(request,response)=>{
-	response.send(
-	{
-		errorMessage : '404 Error'
-	})
+// app.get('/bad',(request,response)=>{
+// 	response.send(
+// 	{
+// 		errorMessage : '404 Error'
+// 	})
 
-})
+// })
 
 
 app.listen(3000, ()=>
